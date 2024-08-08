@@ -4,8 +4,8 @@
 using namespace std;
 
 // Tamaño del mapa
-const int width = 20;
-const int height = 17;
+const int width = 50;
+const int height = 48;
 bool gameOver;
 int x, y, fruitX, fruitY, score;
 int tailX[100], tailY[100];
@@ -116,8 +116,13 @@ void Logic() {
     if (y >= height) y = 0; else if (y < 0) y = height - 1;
 
     for (int i = 0; i < nTail; i++)
-        if (tailX[i] == x && tailY[i] == y)
+    {
+        if (tailX[i] == x && tailY[i] == y) {
+
             gameOver = true;
+            cout << "Lo siento, perdiste, vuelve a intentalo";
+        }
+    }
 
     if (x == fruitX && y == fruitY) {
         score += 10;
@@ -130,7 +135,7 @@ void Logic() {
 int main() {
     Setup();
     while (!gameOver) {
-        cout << "Lo siento, perdiste, vuelve a intentalo";
+        cout << "-------------BIENVENIDO---------------";
         Draw();
         Input();
         Logic();
@@ -138,3 +143,4 @@ int main() {
     }
     return 0;
 }
+//creo que el codigo ya esta listo
